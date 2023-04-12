@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "items": {
+    "type": "object",
+    "properties": {
+      "labels": {
+        "displayOrder": 2,
+        "title": "Labels",
+        "description": "The key-value pair to organize your Google Cloud Pub/Sub resources",
+        "type": "object"
+      },
+      "messageStoragePolicy": {
+        "displayOrder": 3,
+        "title": "Message storage policy",
+        "description": "A policy that stores messages that are published to the topic",
+        "type": "object",
+        "properties": {
+          "allowedPersistenceRegions": {
+            "title": "Allowed persistence regions",
+            "description": "A list of IDs of the Google Cloud Platform (GCP) regions where messages that are published to the topic can be persisted in storage. Messages that are published by publishers in non-allowed GCP regions (or outside the GCP) are routed for storage in one of the allowed regions. An empty list indicates that no regions are allowed and is not a valid configuration.",
+            "type": "array",
+            "items": {
+              "type": "String"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "name": {
+        "displayOrder": 4,
+        "title": "Topic name",
+        "description": "The full name of the topic in the format projects/{project}/topics/{topic}",
+        "display": {
+          "nameProperty": true
+        },
+        "type": "string"
+      },
+      "kmsKeyName": {
+        "displayOrder": 5,
+        "title": "KMS key name",
+        "description": "The resource name of the Cloud Key Management Service (KMS) CryptoKey that protects the access to messages published on the topic",
+        "type": "string"
+      }
+    },
+    "title": "topic",
+    "additionalProperties": false
+  },
+  "type": "array",
+  "title": "topic"
+}
